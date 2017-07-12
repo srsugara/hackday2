@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import DraftList from './draftList';
-
+import Footer from '../../components/Footer';
 import style from './styles';
 
 const ViewDraft = () => (
@@ -30,6 +30,7 @@ const ViewDraft = () => (
       </View>
       <DraftList />
     </View>
+    <Footer/>
   </View>
 );
 
