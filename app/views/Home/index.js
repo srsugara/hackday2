@@ -1,42 +1,326 @@
-import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
-import Footer from '../../components/Footer';
-export default class Home extends Component {
+import React, {Component} from 'react';
+import { View, Text, Button } from 'react-native';
+import FavoriteList from '../Story/storyList';
+import SearchBar from 'react-native-searchbar';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import Footer from '../../components/Footer'
+import style from '../Story/styles';
+
+class ViewFavorite extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      favorites: favorites,
+    };
+    this.searchBar = {};
+  }
+
+  _handleResults(favorites) {
+    this.setState({ favorites: favorites });
+  }
+
+  searchHide(){
+    this.searchBar.hide();
+  }
+
+  searchShow(){
+    this.searchbar.show();
+  }
+
   render() {
     return (
-      <Container>
-        <Content>
-          <Card style={{flex: 0}}>
-            <CardItem>
-              <Left>
-                <Thumbnail source={{uri: 'Image URL'}} />
-                <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>April 15, 2016</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem>
-              <Body>
-                <Image source={{uri: 'Image URL'}} style={{height: 200, width: 200, flex: 1}}/>
-                <Text>
-                  //Your text here
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent textStyle={{color: '#87838B'}}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
-                </Button>
-              </Left>
-            </CardItem>
-          </Card>
-        </Content>
-        <Footer/>
-      </Container>
+      <View style={style.mainContainer}>
+        <SearchBar
+          ref={(ref) => this.searchBar = ref}
+          data={favorites}
+          handleResults={this._handleResults}
+        />
+
+        <View style={style.tranning}>
+          <View style={style.menuTranning}>
+            <Text
+              style={{
+                flex: 1,
+                color: '#fff',
+                fontSize: 25,
+                paddingLeft: 10,
+              }}
+            >
+              Home
+            </Text>
+            <Icon name="search" size={30} color="white" />
+          </View>
+          <FavoriteList list={favorites}/>
+        </View>
+        <Footer />
+      </View>
     );
   }
 }
+
+var favorites = [
+  {
+    time: '00.00',
+    title: 'Lorem ipsum',
+    favorite: false,
+    drafts: [
+      {
+        time: '00.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '02.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      }
+    ],
+  },
+  {
+    time: '00.00',
+    title: 'Lorem ipsum',
+    favorite: false,
+    drafts: [
+      {
+        time: '00.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '02.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      }
+    ],
+  },
+  {
+    time: '00.00',
+    title: 'Lorem ipsum',
+    favorite: true,
+    drafts: [
+      {
+        time: '00.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '02.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      }
+    ],
+  },
+  {
+    time: '00.00',
+    title: 'Lorem ipsum',
+    favorite: false,
+    drafts: [
+      {
+        time: '00.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '02.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      }
+    ],
+  },
+  {
+    time: '00.00',
+    title: 'Lorem ipsum',
+    favorite: true,
+    drafts: [
+      {
+        time: '00.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '01.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      },
+      {
+        time: '02.00',
+        story: '        Lorem ipsum dolor sit amet, zril prompta nominati qui te, tollit dissentiet instructior id usu. Recteque deseruisse intellegam vel cu. Eu rebum vulputate voluptatibus nam, sed eu tota vivendum facilisi. Tritani salutatus ne vim, pri tation aperiam intellegam et. Tamquam fabulas maiorum vel ut, nec debitis tractatos omittantur ne. Vel ne reque ridens iisque.',
+        title: 'Lorem ipsum'
+      }
+    ],
+  }
+];
+
+export default ViewFavorite;
