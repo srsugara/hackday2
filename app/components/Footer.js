@@ -24,7 +24,7 @@ export default class FooterMenu extends Component {
             </Button>
             <Button onPress={() => { Actions.createStory(); }}>
               <Icon name="book" />
-              <Text>Create</Text>
+              <Text>Story</Text>
             </Button>
           </FooterTab>
         </Footer>
