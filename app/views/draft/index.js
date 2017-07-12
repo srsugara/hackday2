@@ -15,6 +15,7 @@ const ViewDraft = () => (
             color: '#fff',
             fontWeight: 'bold',
             paddingLeft: 10,
+            fontSize: 16,
           }}
         >
           Draft List
@@ -25,7 +26,7 @@ const ViewDraft = () => (
           }}
           onPress={null}
           title="Collect"
-          color="#841584"
+          color="#005cb2"
           accessibilityLabel="combine draft to story"
         />
       </View>

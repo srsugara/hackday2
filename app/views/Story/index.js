@@ -29,7 +29,7 @@ export default class storyBook extends Component {
         <View style={styles.footer}>
           <Button
             title="Share Story"
-            color="#12005e"
+            color="#003c8f"
             // onPress={} //this for trigger save story
           />
         </View>
@@ -47,18 +47,18 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    backgroundColor: '#7c43bd',
+    backgroundColor: '#005cb2',
   },
   title: {
-    fontSize: 24,
+    fontSize: 16,
     color: 'white',
     fontWeight: 'bold',
-    padding: 24,
+    padding: 12,
     textAlign: 'center',
-    backgroundColor: '#12005e',
+    backgroundColor: '#003c8f',
   },
   titleStory: {
-    fontSize: 24,
+    fontSize: 16,
     color: 'white',
     fontWeight: 'bold',
     padding: 8,
