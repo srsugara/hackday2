@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import DraftList from './draftList';
+import Footer from '../../components/Footer';
 
 import style from './styles';
 
@@ -20,7 +21,7 @@ const ViewDraft = () => (
         </Text>
         <Button
           style={{
-            fontSize:5,
+            fontSize: 5,
           }}
           onPress={null}
           title="Collect"
@@ -30,6 +31,7 @@ const ViewDraft = () => (
       </View>
       <DraftList />
     </View>
+    <Footer />
   </View>
 );
 

@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import Footer from '../../components/Footer';
 
 export default class storyBook extends Component {
   render() {
@@ -32,6 +33,7 @@ export default class storyBook extends Component {
             // onPress={} //this for trigger save story
           />
         </View>
+        <Footer />
       </View>
     );
   }
