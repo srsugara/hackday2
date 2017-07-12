@@ -17,7 +17,7 @@ const style = StyleSheet.create({
   },
   menuTranning: {
     flexDirection: 'row',
-    backgroundColor: '#f05545',
+    backgroundColor: '#003c8f',
     height: 60,
     alignItems: 'center',
     elevation: 2,

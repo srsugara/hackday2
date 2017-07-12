@@ -46,14 +46,6 @@ export default class FooterMenu extends Component {
             <Icon name="add" size={30} />
             <Text>Write</Text>
           </Button>
-          <Button
-            onPress={() => {
-              Actions.writeDraft();
-            }}
-          >
-            <Icon name="book" size={30} />
-            <Text>Story</Text>
-          </Button>
         </FooterTab>
       </Footer>
     );

@@ -6,6 +6,7 @@ import Draft from './views/draft';
 import Favorite from './views/favorite';
 // import WriteDraft from './views/WriteDraft';
 import CreateStory from './views/Story';
+import ReadStory from './views/Story/storyDetail';
 
 const App = () => (
         <Router hideNavBar>
@@ -14,6 +15,7 @@ const App = () => (
                 <Scene key={'draft'} component={Draft} hideNavBar={true} />
                 <Scene key={'favorite'} component={Favorite} hideNavBar={true} />
                 <Scene key={'createStory'} component={CreateStory} hideNavBar={true} />
+                <Scene key={'detail'} component={ReadStory} hideNavBar={true} />
                 {/*<Scene key={'writeDraft'} component={WriteDraft} hideNavBar={true} />*/}
             </Scene>
         </Router>

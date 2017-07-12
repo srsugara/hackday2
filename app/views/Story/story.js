@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Actions } from 'react-native-router-flux';
 
 const style = StyleSheet.create({
   container: {
@@ -36,12 +37,14 @@ const icon = (favorite) => {
 
 const Favorite = ({ favorite, rowId }) => (
   <View style={style.container}>
-    <Text style={([style.time, style.textPadding])}>
-      {favorite.title} | {favorite.time} | {icon(favorite.favorite)}
-    </Text>
-    <Text style={([style.story, style.textPadding])}>
-      {favorite.drafts[0].story}
-    </Text>
+    <TouchableOpacity onPress={() => Actions.detail()}>
+      <Text style={([style.time, style.textPadding])}>
+        {favorite.title} | {favorite.time} | {icon(favorite.favorite)}
+      </Text>
+      <Text style={([style.story, style.textPadding])}>
+        {favorite.drafts[0].story}
+      </Text>
+    </TouchableOpacity>
   </View>
 );
 
