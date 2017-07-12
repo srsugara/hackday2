@@ -28,7 +28,7 @@ export default class storyBook extends Component {
           <Button
             title="Share Story"
             color="#12005e"
-            // onPress={} //this for trigger save story
+            onPress={} //this for trigger save story
           />
         </View>
       </View>
